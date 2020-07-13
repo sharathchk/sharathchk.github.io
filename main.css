@@ -29,7 +29,7 @@ button {
 .newinput {
   margin-top: 0%;
   font-size: 140%;
-  width: 50%;
+  width: 80%;
   height: auto;
   border: 2px solid #333;
   background: #fff;
@@ -221,7 +221,7 @@ li > .candroid {
 li > .cdesktop {
   line-height: Auto;
   font-size: 130%;
-  width: 55%;
+  width: 85%;
   padding: Auto;
   float: left;
   position: relative;
@@ -240,7 +240,8 @@ li > .mdelete {
 li > .delete {
   background: none;
   border: none;
-  width: 2%;
+  font-size:150%;
+  width: auto;
   cursor: pointer;
 }
 
