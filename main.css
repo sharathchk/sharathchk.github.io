@@ -73,9 +73,12 @@ button {
 .addbutton {
   background: none;
   border: none;
-  width: 2.5%;
   margin-left: 2%;
+  font-size:100%;
+  width: auto;
+  height:auto;
   cursor: pointer;
+
 }
 .maddbutton {
   background: none;
@@ -122,12 +125,14 @@ button {
 }
 
 .signoutbutton {
+  margin-left: 3%;
   background: none;
   border: none;
-  width: 2.5%;
-  font-size: 120%;
-  margin-left: 3%;
+  font-size:100%;
+  width: auto;
+  height:auto;
   cursor: pointer;
+
 }
 
 .androidsignoutbutton {
@@ -240,8 +245,9 @@ li > .mdelete {
 li > .delete {
   background: none;
   border: none;
-  font-size:150%;
+  font-size:100%;
   width: auto;
+  height:auto;
   cursor: pointer;
 }
 
