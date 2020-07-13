@@ -125,11 +125,8 @@ button {
   margin-left: 3%;
   background: none;
   border: none;
-  font-size:100%;
-  width: auto;
-  height:auto;
+  width: 2.5%;
   cursor: pointer;
-
 }
 
 .androidsignoutbutton {
@@ -243,7 +240,7 @@ li > .delete {
   background: none;
   border: none;
   margin-left: 2%;
-  width: 2.5%;
+  width: 2%;
   cursor: pointer;
 }
 
