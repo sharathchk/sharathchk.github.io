@@ -23,6 +23,7 @@ console.log("no cache on this browser");
   });
 // Subsequent queries will use persistence, if it was enabled successfully
   //Handle Account Status
+
 firebase.auth().onAuthStateChanged(user => {
   if(user) {}
   else{
@@ -131,7 +132,7 @@ var loadtodolist = function () {
       currDate.setHours(23);
       currDate.setMinutes(59);
 
-      // firebase.firestore().disableNetwork();
+      firebase.firestore().disableNetwork();
       console.log('from cache  -  ' + useremail + ';');
       db.collection("tasks").where("uemail", "==", useremail).where("dueDate", "<=", currDate).where("status", "==", false).orderBy("dueDate", "desc").get()
         .then((querySnapshot) => {
@@ -159,7 +160,7 @@ var loadtodolist = function () {
                   }
                 }
                 if (found == false) {
-                  var listItem = createNewTaskElement(sdoc.data().title, sdoc.id, sdoc.data().recurType);
+                  var listItem = createNewTaskElement(sdoc.data().title, sdoc.id);
                   //Append listItem to incompleteTasksHolder
                   //   console.log('FINAL server  -  ' + sdoc.data().title + ';');
                   incompleteTasksHolder.appendChild(listItem);
@@ -474,7 +475,14 @@ var taskCompleted = function () {
 
       db.collection("tasks").doc(listItem.querySelector("#doclabel").innerText).update({
         dueDate: recurDue
-      });
+      })
+    .then(function () {
+      console.log("Document successfully updated!");
+    })
+    .catch(function (error) {
+      // The document probably doesn't exist.
+      console.error("Error updating document: ", error);
+    });
     }
   });
 
@@ -542,6 +550,8 @@ for (var i = 0; i < completedTasksHolder.children.length; i++) {
   // bind events to list item's children (taskIncompleted)
   bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
 }
+
+
 
 // list
 /*var listTasks = function() {
