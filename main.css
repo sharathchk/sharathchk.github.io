@@ -220,7 +220,7 @@ li > .candroid {
 li > .cdesktop {
   line-height: Auto;
   font-size: 130%;
-  width: 90%;
+  width: 88%;
   padding: Auto;
   float: left;
   position: relative;
@@ -240,7 +240,7 @@ li > .delete {
   background: none;
   border: none;
   margin-left: 2%;
-  font-size:60%;
+  font-size:40%;
   width: auto;
   height:auto;
   cursor: pointer;
