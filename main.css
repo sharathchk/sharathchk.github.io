@@ -240,8 +240,7 @@ li > .delete {
   background: none;
   border: none;
   margin-left: 2%;
-  font-size:40%;
-  width: auto;
+  width: 3%;
   height:auto;
   cursor: pointer;
 }
