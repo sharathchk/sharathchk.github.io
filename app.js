@@ -92,7 +92,7 @@ var createNewTaskElement = function (taskString, taskID) {
   listItem.appendChild(checkBox);
   listItem.appendChild(docid);
   listItem.appendChild(tlabel);
-//  listItem.appendChild(deleteButton);
+  listItem.appendChild(deleteButton);
 
   return listItem;
 };
@@ -520,12 +520,12 @@ var bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
   //select taskListItem's children
   var checkBox = taskListItem.querySelector("#checkfield");
   //  var editButton = taskListItem.querySelector("button.edit");
-  var deleteButton = taskListItem.querySelector("#deletefield");
+  // delete button disabled sharath   var deleteButton = taskListItem.querySelector("#deletefield");
 
   // bind editTask to edit button
   // editButton.onclick = editTask;
   //bind deleteTask to delete button
-  deleteButton.onclick = deleteTask;
+  // delete button disabled sharath      deleteButton.onclick = deleteTask;
 
   //bind checkBoxEventHandler to checkbox
   checkBox.onchange = checkBoxEventHandler;
