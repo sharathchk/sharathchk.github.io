@@ -203,7 +203,7 @@ li .mcheckbox
 li > .cmobile {
   line-height: Auto;
   font-size: 400%;
-  width: 75%;
+  width: 80%;
   padding: Auto;
   float: left;
   position: relative;
@@ -211,7 +211,7 @@ li > .cmobile {
 li > .candroid {
   line-height: Auto;
   font-size: 360%;
-  width: 85%;
+  width: 90%;
   padding: Auto;
   float: left;
   position: relative;
@@ -220,7 +220,7 @@ li > .candroid {
 li > .cdesktop {
   line-height: Auto;
   font-size: 130%;
-  width: 88%;
+  width: 92%;
   padding: Auto;
   float: left;
   position: relative;
