@@ -92,7 +92,7 @@ var createNewTaskElement = function (taskString, taskID) {
   listItem.appendChild(checkBox);
   listItem.appendChild(docid);
   listItem.appendChild(tlabel);
-  listItem.appendChild(deleteButton);
+ // listItem.appendChild(deleteButton);
 
   return listItem;
 };
