@@ -581,6 +581,7 @@ var CompletedbindTaskEvents = function (taskListItem, checkBoxEventHandler) {
   //select taskListItem's children
   var checkBox = taskListItem.querySelector("#checkfield");
   //  var editButton = taskListItem.querySelector("button.edit");
+  var deleteButton = taskListItem.querySelector("#deletefield");
   // delete button disabled sharath   var deleteButton = taskListItem.querySelector("#deletefield");
 
   // bind editTask to edit button
