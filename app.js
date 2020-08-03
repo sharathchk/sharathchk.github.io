@@ -97,6 +97,51 @@ var createNewTaskElement = function (taskString, taskID) {
   return listItem;
 };
 
+var createCompletedTaskElement = function (taskString, taskID) {
+  var listItem = document.createElement("li");
+  listItem.id = "listid";
+  var checkBox = document.createElement("input"); // checkbox
+  var docid = document.createElement("label");
+  var tlabel = document.createElement("label");
+  var deleteButton = document.createElement("button");
+  checkBox.type = "checkbox";
+  checkBox.id = "checkfield";
+
+
+  tlabel.id = "tasklabel";
+
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    tlabel.className = "cmobile";
+    deleteButton.className = "mdelete";
+    checkBox.className = "mcheckbox";
+  } else {
+    tlabel.className = "cdesktop";
+    deleteButton.className = "delete";
+    checkBox.className = "ccheckbox";
+  };
+
+  if (/Android|webOS/i.test(navigator.userAgent)) {
+    tlabel.className = "candroid";
+  };
+
+  tlabel.innerText = taskString;
+
+
+  docid.id = "doclabel";
+  docid.innerText = taskID;
+  docid.style.display = "none";
+
+  deleteButton.id = "deletefield";
+  deleteButton.innerHTML = "<img src='delete.svg' width ='250%'>";
+
+  listItem.appendChild(checkBox);
+  listItem.appendChild(docid);
+  listItem.appendChild(tlabel);
+  listItem.appendChild(deleteButton);
+
+  return listItem;
+};
+
 var loadtodolist = function () {
   if (/iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.querySelector("#new-task").className = "imnewinput";
@@ -208,7 +253,7 @@ var loadcompletedtodolist = function () {
         //      console.log(`${doc.id} => ${doc.data()}` );
         console.log('completed' + doc.data().title);
         //     console.log('completed' + useremail + ' ' + doc.data().uid);
-        var listItem = createNewTaskElement(doc.data().title, doc.id);
+        var listItem = createCompletedTaskElement(doc.data().title, doc.id);
         listItem.querySelector("#checkfield").checked = true;
 
         //Append listItem to completedTasksHolder
