@@ -230,7 +230,7 @@ li > .cdesktop {
 li > .mdelete {
   background: none;
   border: none;
-  font-size:400%;
+  font-size:200%;
   width: auto;
   height:auto;
   cursor: pointer;
@@ -239,8 +239,8 @@ li > .mdelete {
 li > .delete {
   background: none;
   border: none;
-  margin-left: 2%;
-  width: 3%;
+  margin-left: 1%;
+  width: 1%;
   height:auto;
   cursor: pointer;
 }
