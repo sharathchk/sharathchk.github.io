@@ -258,7 +258,7 @@ var loadcompletedtodolist = function () {
 
         //Append listItem to completedTasksHolder
         completedTasksHolder.appendChild(listItem);
-        bindTaskEvents(listItem, taskIncomplete);
+        CompletedbindTaskEvents(listItem, taskIncomplete);
       });
     });
   }
@@ -561,6 +561,22 @@ var taskIncomplete = function () {
 };
 
 var bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
+  console.log("Bind list item events");
+  //select taskListItem's children
+  var checkBox = taskListItem.querySelector("#checkfield");
+  //  var editButton = taskListItem.querySelector("button.edit");
+  // delete button disabled sharath   var deleteButton = taskListItem.querySelector("#deletefield");
+
+  // bind editTask to edit button
+  // editButton.onclick = editTask;
+  //bind deleteTask to delete button
+  //deleteButton.onclick = deleteTask;
+
+  //bind checkBoxEventHandler to checkbox
+  checkBox.onchange = checkBoxEventHandler;
+};
+
+var CompletedbindTaskEvents = function (taskListItem, checkBoxEventHandler) {
   console.log("Bind list item events");
   //select taskListItem's children
   var checkBox = taskListItem.querySelector("#checkfield");
