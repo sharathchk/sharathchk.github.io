@@ -570,7 +570,7 @@ var bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
   // bind editTask to edit button
   // editButton.onclick = editTask;
   //bind deleteTask to delete button
-  // delete button disabled sharath      deleteButton.onclick = deleteTask;
+  deleteButton.onclick = deleteTask;
 
   //bind checkBoxEventHandler to checkbox
   checkBox.onchange = checkBoxEventHandler;
