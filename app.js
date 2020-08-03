@@ -226,7 +226,7 @@ var loadfuturetodolist = function () {
       console.log(`${doc.id} => ${doc.data()}`);
       console.log('Future : ' + doc.data().title);
       var listItem = createNewTaskElement(doc.data().title, doc.id);
-      listItem.querySelector("#checkfield").disabled = true;
+      //listItem.querySelector("#checkfield").disabled = true;
       //Append listItem to completedTasksHolder
       futureTasksHolder.appendChild(listItem);
       bindTaskEvents(listItem, taskCompleted);
