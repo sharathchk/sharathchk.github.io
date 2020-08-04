@@ -182,8 +182,8 @@ var loadtodolist = function () {
       db.collection("tasks").where("uemail", "==", useremail).where("dueDate", "<=", currDate).where("status", "==", false).orderBy("dueDate", "desc").get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            console.log(querySnapshot);
-            console.log('local   - ' + doc.data().title + doc.data().dueDate);
+            //console.log(querySnapshot);
+            console.log('local   - ' + doc.id + '  :  ' + doc.data().title + '  :  '  + doc.data().dueDate);
             var listItem = createNewTaskElement(doc.data().title, doc.id);
             //Append listItem to incompleteTasksHolder
             incompleteTasksHolder.appendChild(listItem);
@@ -197,8 +197,8 @@ var loadtodolist = function () {
                 //   console.log('server   - ' + sdoc.data().title);
                 var found = false;
                 for (var i = 0; i < querySnapshot.docs.length; i++) {
-                  console.log('loop server  -  ' + sdoc.data().title + ';');
-                  if (querySnapshot.docs[i].id == sdoc.id) {
+                   console.log('Server   - ' + sdoc.id + '  :  ' + sdoc.data().title + '  :  '  + sdoc.data().dueDate);
+                       if (querySnapshot.docs[i].id == sdoc.id) {
                     //    console.log('MATCH server  -  ' + sdoc.data().title + ';');
                     found = true;
                     break;
