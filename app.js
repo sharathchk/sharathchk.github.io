@@ -92,51 +92,6 @@ var createNewTaskElement = function (taskString, taskID) {
   listItem.appendChild(checkBox);
   listItem.appendChild(docid);
   listItem.appendChild(tlabel);
- // listItem.appendChild(deleteButton);
-
-  return listItem;
-};
-
-var createCompletedTaskElement = function (taskString, taskID) {
-  var listItem = document.createElement("li");
-  listItem.id = "listid";
-  var checkBox = document.createElement("input"); // checkbox
-  var docid = document.createElement("label");
-  var tlabel = document.createElement("label");
-  var deleteButton = document.createElement("button");
-  checkBox.type = "checkbox";
-  checkBox.id = "checkfield";
-
-
-  tlabel.id = "tasklabel";
-
-  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    tlabel.className = "cmobile";
-    deleteButton.className = "mdelete";
-    checkBox.className = "mcheckbox";
-  } else {
-    tlabel.className = "cdesktop";
-    deleteButton.className = "delete";
-    checkBox.className = "ccheckbox";
-  };
-
-  if (/Android|webOS/i.test(navigator.userAgent)) {
-    tlabel.className = "candroid";
-  };
-
-  tlabel.innerText = taskString;
-
-
-  docid.id = "doclabel";
-  docid.innerText = taskID;
-  docid.style.display = "none";
-
-  deleteButton.id = "deletefield";
-  deleteButton.innerHTML = "<img src='delete.svg' width ='250%'>";
-
-  listItem.appendChild(checkBox);
-  listItem.appendChild(docid);
-  listItem.appendChild(tlabel);
   listItem.appendChild(deleteButton);
 
   return listItem;
@@ -253,12 +208,12 @@ var loadcompletedtodolist = function () {
         //      console.log(`${doc.id} => ${doc.data()}` );
         console.log('completed' + doc.data().title);
         //     console.log('completed' + useremail + ' ' + doc.data().uid);
-        var listItem = createCompletedTaskElement(doc.data().title, doc.id);
+        var listItem = createNewTaskElement(doc.data().title, doc.id);
         listItem.querySelector("#checkfield").checked = true;
 
         //Append listItem to completedTasksHolder
         completedTasksHolder.appendChild(listItem);
-        CompletedbindTaskEvents(listItem, taskIncomplete);
+        bindTaskEvents(listItem, taskIncomplete);
       });
     });
   }
@@ -270,7 +225,7 @@ var loadfuturetodolist = function () {
     querySnapshot.forEach((doc) => {
       console.log(`${doc.id} => ${doc.data()}`);
       console.log('Future : ' + doc.data().title);
-      var listItem = createCompletedTaskElement(doc.data().title, doc.id);
+      var listItem = createNewTaskElement(doc.data().title, doc.id);
       //listItem.querySelector("#checkfield").disabled = true;
       //Append listItem to completedTasksHolder
       futureTasksHolder.appendChild(listItem);
@@ -564,30 +519,14 @@ var bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
   console.log("Bind list item events");
   //select taskListItem's children
   var checkBox = taskListItem.querySelector("#checkfield");
-  //  var editButton = taskListItem.querySelector("button.edit");
+  var deleteButton = taskListItem.querySelector("#deletefield");
+   //  var editButton = taskListItem.querySelector("button.edit");
   // delete button disabled sharath   var deleteButton = taskListItem.querySelector("#deletefield");
 
   // bind editTask to edit button
   // editButton.onclick = editTask;
   //bind deleteTask to delete button
   //deleteButton.onclick = deleteTask;
-
-  //bind checkBoxEventHandler to checkbox
-  checkBox.onchange = checkBoxEventHandler;
-};
-
-var CompletedbindTaskEvents = function (taskListItem, checkBoxEventHandler) {
-  console.log("Bind list item events");
-  //select taskListItem's children
-  var checkBox = taskListItem.querySelector("#checkfield");
-  //  var editButton = taskListItem.querySelector("button.edit");
-  var deleteButton = taskListItem.querySelector("#deletefield");
-  // delete button disabled sharath   var deleteButton = taskListItem.querySelector("#deletefield");
-
-  // bind editTask to edit button
-  // editButton.onclick = editTask;
-  //bind deleteTask to delete button
-  deleteButton.onclick = deleteTask;
 
   //bind checkBoxEventHandler to checkbox
   checkBox.onchange = checkBoxEventHandler;
