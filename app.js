@@ -414,6 +414,10 @@ db.collection("tasks").add({
 
 // Delete an existing task
 var deleteTask = function () {
+ 
+var txt;
+var r = confirm("Are you sure you want to delete this Task?");
+if (r == true) { 
   var listItem = this.parentNode;
   var ul = listItem.parentNode;
   console.log("Delete task");
@@ -426,7 +430,7 @@ var deleteTask = function () {
   });
   //Remove the parent list item from the ul
   ul.removeChild(listItem);
-
+}
 };
 
 // Mark a task as complete
