@@ -414,15 +414,13 @@ db.collection("tasks").add({
 
 // Delete an existing task
 var deleteTask = function () {
- 
 var txt;
-var r = confirm("Are you sure you want to delete this Task?");
-if (r == true) { 
-  var listItem = this.parentNode;
-  var ul = listItem.parentNode;
-  console.log("Delete task");
-  console.log(listItem.querySelector("#doclabel").innerText);
-  console.log(listItem.querySelector("#tasklabel").innerText);
+var listItem = this.parentNode;
+var ul = listItem.parentNode;
+
+var r = confirm("Are you sure you want to delete this Task : " + listItem.querySelector("#tasklabel").innerText + " ?");
+ if (r == true) { 
+//  console.log(listItem.querySelector("#doclabel").innerText);
   db.collection("tasks").doc(listItem.querySelector("#doclabel").innerText).delete().then(function () {
     console.log("Document successfully deleted!");
   }).catch(function (error) {
