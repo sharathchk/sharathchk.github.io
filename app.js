@@ -270,7 +270,7 @@ var loadfuturetodolist = function () {
     querySnapshot.forEach((doc) => {
       console.log(`${doc.id} => ${doc.data()}`);
       console.log('Future : ' + doc.data().title);
-      var listItem = createNewTaskElement(doc.data().title, doc.id);
+      var listItem = createCompletedTaskElement(doc.data().title, doc.id);
       //listItem.querySelector("#checkfield").disabled = true;
       //Append listItem to completedTasksHolder
       futureTasksHolder.appendChild(listItem);
