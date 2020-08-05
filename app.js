@@ -9,7 +9,7 @@
     messagingSenderId: "576657502351"
   };
   firebase.initializeApp(config);
-  firebase.firestore(experimentalTabSynchronization:true).enablePersistence()
+  firebase.firestore().enablePersistence({experimentalTabSynchronization:true})
   .then(function () {
    // Initialize Cloud Firestore through firebase
    console.log("Cache is enabled");
