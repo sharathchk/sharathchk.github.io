@@ -239,9 +239,10 @@ li > .mdelete {
 li > .delete {
   background: none;
   border: none;
-  font-size:130%;
+  font-size:80%;
   width: auto;
   height:auto;
+  float: left;
   cursor: pointer;
 }
 
