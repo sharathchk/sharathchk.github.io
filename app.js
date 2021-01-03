@@ -497,7 +497,7 @@ var taskCompleted = function () {
 
       var recurDue = new Date();
       if (rectype == 'd') {
-          recurDue = new Date();
+          recurDue = new Date(d.setDate(d.getDate() + 1));
       }
       if (rectype == 'w') {
         ChronoDate = chrono.parseDate(day[tdueDate.getDay()], nextday, {
