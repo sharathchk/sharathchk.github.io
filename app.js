@@ -290,7 +290,42 @@ var addTask = function () {
     } else {
       dueDate = new Date();
     };
+   
     var everyPosition = 0;
+    var recurString;
+    everyPosition = inputvaluetask.toLowerCase().lastIndexOf('every day');
+    if (everyPosition > 1) {
+      startPos = everyPosition;
+      everyPosition += 10;
+    } else {
+      everyPosition = inputvaluetask.toLowerCase().lastIndexOf('daily');
+      if (everyPosition > 1) {
+        startPos = everyPosition;
+        everyPosition += 5;
+      } else {
+        everyPosition = inputvaluetask.toLowerCase().lastIndexOf('everyday');
+        if (everyPosition > 1) {
+          startPos = everyPosition;
+          everyPosition += 8;
+        }
+      }
+    };
+    if (everyPosition > 4) {
+      finalTask = (inputvaluetask.substring(0, startPos)).trim();
+      recurString = (inputvaluetask.substring(everyPosition, inputvaluetask.length)).trim().toLowerCase();
+      recurType = 'd';
+      recurCount = 1;
+      ChronoDate = chrono.parseDate(recurString, new Date(), {
+        forwardDate: true
+      });
+      if (ChronoDate) {
+        dueDate = ChronoDate
+      };
+      recurMessage = 'Task is added with due date ' + month[dueDate.getMonth()] + ' ' + dueDate.getDate() + ' and daily recurrence';
+    };
+   
+   
+   var everyPosition = 0;
     var recurString;
     everyPosition = inputvaluetask.toLowerCase().lastIndexOf('every week');
     if (everyPosition > 1) {
@@ -322,6 +357,8 @@ var addTask = function () {
       };
       recurMessage = 'Task is added with due date ' + month[dueDate.getMonth()] + ' ' + dueDate.getDate() + ' and weekly recurrence';
     };
+   
+   
     everyPosition = inputvaluetask.toLowerCase().lastIndexOf('every month');
     if (everyPosition > 1) {
       startPos = everyPosition;
@@ -459,6 +496,9 @@ var taskCompleted = function () {
       day[6] = "Saturday";
 
       var recurDue = new Date();
+      if (rectype == 'd') {
+          recurDue = new Date();
+      }
       if (rectype == 'w') {
         ChronoDate = chrono.parseDate(day[tdueDate.getDay()], nextday, {
           forwardDate: true
