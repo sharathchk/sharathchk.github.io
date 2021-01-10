@@ -433,7 +433,7 @@ db.collection("tasks").add({
       .then(function (docRef) {
         var listItem = createNewTaskElement(inputvaluetask, docRef.id);
         //Append listItem to incompleteTasksHolder
-        incompleteTasksHolder.appendChild(listItem);
+        incompleteTasksHolder.prepend(listItem);
         bindTaskEvents(listItem, taskCompleted);
         console.log("Document written with ID: ", docRef.id);
         if (recurMessage) {
