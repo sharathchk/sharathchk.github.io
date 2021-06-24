@@ -137,7 +137,11 @@ var loadtodolist = function () {
       db.collection("tasks").where("uemail", "==", useremail).where("dueDate", "<=", currDate).where("status", "==", false).orderBy("dueDate", "asc").get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            //console.log(querySnapshot);
+            console.log(querySnapshot);
+            console.log(doc);
+            console.log(doc.data());
+           
+          
             console.log('local   - ' + doc.id + '  :  ' + doc.data().title + '  :  '  + doc.data().dueDate);
             var listItem = createNewTaskElement(doc.data().title, doc.id);
             //Append listItem to incompleteTasksHolder
